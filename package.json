@@ -1,0 +1,38 @@
+{
+  "name": "jsreport-base",
+  "version": "0.1.0",
+  "description": "jsreport extension automatically adding html base tag",
+  "scripts": {
+    "test": "mocha test --timeout 5000 && standard",
+    "test:watch": "mocha test --watch"
+  },
+  "homepage": "https://github.com/jsreport/jsreport-base",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jsreport/jsreport-base.git"
+  },
+  "keywords": [
+    "jsreport",
+    "base"
+  ],
+  "standard": {
+    "env": {
+      "mocha": true
+    }
+  },
+  "license": "MIT",
+  "dependencies": {  
+  },
+  "author": "Jan Blaha",
+  "devDependencies": {
+    "jsreport-core": "1.3.2",
+    "mocha": "3.4.2",
+    "should": "11.2.1",
+    "standard": "10.0.2"
+  },
+  "files": [
+    "lib",
+    "index.js",
+    "jsreport.config.js"
+  ]
+}
