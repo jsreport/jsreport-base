@@ -27,12 +27,12 @@ The extension then injects [html base tag](https://www.tutorialspoint.com/html/h
 
 ```html
 <html>
-	<head>
-	  <base href="file:///jsreport/Folder/myAssets" />
-	  <script src="js/jquery.min.js"></script>
-	</head>
-	<body>
-	</body>
+  <head>
+    <base href="file:///jsreport/Folder/myAssets" />
+    <script src="js/jquery.min.js"></script>
+  </head>
+  <body>
+  </body>
 </html>
 ```
 
