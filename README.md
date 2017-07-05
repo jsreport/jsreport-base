@@ -14,7 +14,7 @@ See https://jsreport.net/learn/base
 
 ### Set base address in config
 
-```
+```js
 "base": {
   "url": "${cwd}/myAssets"
 },
@@ -25,7 +25,7 @@ See https://jsreport.net/learn/base
 
 The extension then injects [html base tag](https://www.tutorialspoint.com/html/html_base_tag.htm) into every valid html:
 
-```
+```html
 <html>
 	<head>
 	  <base href="file:///jsreport/Folder/myAssets" />
@@ -55,7 +55,7 @@ jsreport render
 > `POST`: http://localhost:5488/api/report<br/>
 > `Headers`: Content-Type: application/json<br/>
 > BODY:
->```
+>```js
 {
 	"template": {
         "content": "<html><head></head><body></body></html>",
