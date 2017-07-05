@@ -56,16 +56,16 @@ jsreport render
 > `Headers`: Content-Type: application/json<br/>
 > BODY:
 >```js
-{
-	"template": {
-        "content": "<html><head></head><body></body></html>",
-        "recipe": "html",
-        "engine": "handlebars"
-    },
-    "options": {
-        "base": "http://foo.com"
-    }
-}
+  {
+	  "template": {
+          "content": "<html><head></head><body></body></html>",
+          "recipe": "html",
+          "engine": "handlebars"
+      },
+      "options": {
+          "base": "http://foo.com"
+      }
+  }
 >```
 
 ## jsreport-core
