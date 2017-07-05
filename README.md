@@ -54,19 +54,18 @@ jsreport render
 
 > `POST`: http://localhost:5488/api/report<br/>
 > `Headers`: Content-Type: application/json<br/>
-> BODY:
->```js
-  {
-	  "template": {
-          "content": "<html><head></head><body></body></html>",
-          "recipe": "html",
-          "engine": "handlebars"
-      },
-      "options": {
-          "base": "http://foo.com"
-      }
+```js
+{
+  "template": {
+    "content": "<html><head></head><body></body></html>",
+    "recipe": "html",
+    "engine": "handlebars"
+  },
+  "options": {
+    "base": "http://foo.com"
   }
->```
+}
+```
 
 ## jsreport-core
 You can apply this extension also manually to [jsreport-core](https://github.com/jsreport/jsreport-core)
