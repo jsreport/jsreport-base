@@ -1,18 +1,18 @@
 require('should')
-var Reporter = require('jsreport-core')
+const jsreport = require('jsreport-core')
 
-describe('base', function () {
-  var reporter
+describe('base', () => {
+  let reporter
 
-  beforeEach(function () {
-    reporter = Reporter()
+  beforeEach(() => {
+    reporter = jsreport()
       .use(require('../')())
 
     return reporter.init()
   })
 
-  it('should replace base if in request.options.base', function () {
-    return reporter.render({
+  it('should replace base if in request.options.base', async () => {
+    const response = await reporter.render({
       template: {
         content: '<html><head></head><body></body></html>',
         recipe: 'html',
@@ -21,13 +21,13 @@ describe('base', function () {
       options: {
         base: 'foo'
       }
-    }).then(function (res) {
-      res.content.toString().should.containEql('<base href=\'foo\' />')
     })
+
+    response.content.toString().should.containEql('<base href=\'foo\' />')
   })
 
-  it('should replace ${cwd} with working directory', function () { // eslint-disable-line
-    return reporter.render({
+  it('should replace ${cwd} with working directory', async () => { // eslint-disable-line
+    const res = await reporter.render({
       template: {
         content: '<html><head></head><body></body></html>',
         recipe: 'html',
@@ -36,31 +36,31 @@ describe('base', function () {
       options: {
         base: '${cwd}/foo' // eslint-disable-line
       }
-    }).then(function (res) {
-      res.content.toString().should.containEql('file:///' + process.cwd().replace('\\', '/') + '/foo')
     })
+
+    res.content.toString().should.containEql('file:///' + process.cwd().replace('\\', '/') + '/foo')
   })
 })
 
-describe('base with global settings', function () {
-  var reporter
+describe('base with global settings', () => {
+  let reporter
 
-  beforeEach(function () {
-    reporter = Reporter()
+  beforeEach(() => {
+    reporter = jsreport()
       .use(require('../')({ url: 'foo.com' }))
 
     return reporter.init()
   })
 
-  it('should replace base from the global options', function () {
-    return reporter.render({
+  it('should replace base from the global options', async () => {
+    const res = await reporter.render({
       template: {
         content: '<html><head></head><body></body></html>',
         recipe: 'html',
         engine: 'none'
       }
-    }).then(function (res) {
-      res.content.toString().should.containEql('<base href=\'foo.com\' />')
     })
+
+    res.content.toString().should.containEql('<base href=\'foo.com\' />')
   })
 })
