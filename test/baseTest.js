@@ -40,6 +40,21 @@ describe('base', () => {
 
     res.content.toString().should.containEql('file:///' + process.cwd().replace('\\', '/') + '/foo')
   })
+
+  it('should replace base if in request.options.base and html contains lang', async () => {
+    const response = await reporter.render({
+      template: {
+        content: '<html lang="en"><head></head><body></body></html>',
+        recipe: 'html',
+        engine: 'none'
+      },
+      options: {
+        base: 'foo'
+      }
+    })
+
+    response.content.toString().should.containEql('<base href=\'foo\' />')
+  })
 })
 
 describe('base with global settings', () => {
