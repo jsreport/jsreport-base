@@ -55,6 +55,21 @@ describe('base', () => {
 
     response.content.toString().should.containEql('<base href=\'foo\' />')
   })
+
+  it('should not duplicate base tag', async () => {
+    const response = await reporter.render({
+      template: {
+        content: '<html><head><base></base></head><body></body></html>',
+        recipe: 'html',
+        engine: 'none'
+      },
+      options: {
+        base: 'foo'
+      }
+    })
+
+    response.content.toString().should.not.containEql('<base href=\'foo\' />')
+  })
 })
 
 describe('base with global settings', () => {
