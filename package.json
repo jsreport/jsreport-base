@@ -28,7 +28,7 @@
   "author": "Jan Blaha",
   "devDependencies": {
     "eslint": "4.19.1",
-    "jsreport-core": "2.4.0",
+    "jsreport-core": "2.6.1",
     "mocha": "5.1.1",
     "should": "13.2.1",
     "standard": "11.0.1"
